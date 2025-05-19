@@ -107,13 +107,23 @@ function handleQuestion(index) {
   let answers = document.querySelectorAll(".options");
   answers.forEach((answer) => {
     answer.addEventListener("click", (e) => {
+   
+      
+    
+
       if (e.target.textContent === questions[index].correctAnswer) {
         document.getElementById("feedbackImage").src = "images/check.png";
         document.getElementById("feedbackImage").alt = "Correct!";
+        
       } else {
         document.getElementById("feedbackImage").src = "images/x.png";
         document.getElementById("feedbackImage").alt = "Wrong";
+       
       }
+         // disable answer buttons after click
+         answers.forEach(function (btn) {
+          btn.disabled = true;
+      });
       
       
       document.getElementById("explainText").innerHTML = questions[index].explain;
